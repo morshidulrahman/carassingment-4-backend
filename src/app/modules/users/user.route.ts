@@ -12,6 +12,7 @@ router.post(
 );
 
 router.put('/user/:userId', userController.updateUser);
+router.delete('/user/:userId', userController.DeleteUser);
 router.get('/users', userController.getallUser);
 
 export const userRouter = router;

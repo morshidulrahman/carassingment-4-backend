@@ -1,3 +1,4 @@
+import AppError from '../../errors/AppError';
 import { TUser } from './user.interface';
 import { User } from './user.model';
 
@@ -22,8 +23,18 @@ const UpdateuserIntoDb = async (payload: Partial<TUser>, productId: string) => {
   return result;
 };
 
+const DeleteuserIntoDb = async (orderId: string) => {
+  const isaviable = await User.findById(orderId);
+  if (!isaviable) {
+    throw new AppError(404, 'order is not available');
+  } else {
+    const result = await User.findByIdAndDelete(orderId);
+    return result;
+  }
+};
 export const userServices = {
   createUserIntoDB,
   UpdateuserIntoDb,
   getalluserintodb,
+  DeleteuserIntoDb,
 };

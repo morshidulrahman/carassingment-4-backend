@@ -26,7 +26,32 @@ const getallOrder = catchAsync(async (req, res) => {
   });
 });
 
+const UpdateOrder = catchAsync(async (req, res) => {
+  const { orderId } = req.params;
+  const updatedData = req.body;
+  const result = await ordersServices.UpdateOrdertIntoDb(updatedData, orderId);
+  SendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Updated Order successfully',
+    data: result,
+  });
+});
+
+const DeleteOrder = catchAsync(async (req, res) => {
+  const { orderId } = req.params;
+  const result = await ordersServices.DeleteOrderIntoDb(orderId);
+  SendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Delete order successfully',
+    data: result,
+  });
+});
+
 export const orderController = {
   createOrder,
   getallOrder,
+  DeleteOrder,
+  UpdateOrder,
 };
