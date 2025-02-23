@@ -10,4 +10,6 @@ router.patch(
   BlockController.BlockUser,
 );
 
+router.get('/admin/data-statics', BlockController.getAllData);
+
 export const AdminRouter = router;

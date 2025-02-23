@@ -11,7 +11,12 @@ const Productschema = new Schema<TProduct>({
   quantity: { type: Number, required: true },
   category: { type: String, required: true },
   price: { type: Number, required: true },
+  miles: { type: Number, required: true },
+  transmission: { type: String, required: true },
+  fuel: { type: String, required: true },
+  seats: { type: Number, required: true },
   available: { type: Boolean, required: true },
+  reviews: { type: Number, required: true },
 });
 
 export const ProductModel = model<TProduct>('Products', Productschema);

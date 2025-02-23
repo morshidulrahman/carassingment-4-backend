@@ -15,6 +15,17 @@ const BlockUser = catchAsync(async (req, res) => {
   });
 });
 
+const getAllData = catchAsync(async (req, res) => {
+  const result = await adminServices.getallDataintodb();
+
+  SendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    data: result,
+  });
+});
+
 export const BlockController = {
   BlockUser,
+  getAllData,
 };

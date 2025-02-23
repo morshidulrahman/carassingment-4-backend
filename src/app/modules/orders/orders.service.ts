@@ -1,9 +1,28 @@
 import AppError from '../../errors/AppError';
+import { ProductModel } from '../product/product.model';
 import { TOrderData } from './orders.interface';
 import { OrderModel } from './orders.model';
 
 const AddOrderDataintoDb = async (payload: TOrderData) => {
+  const productid = payload.productId;
+  const quantity = payload.quantity;
+
+  const product = await ProductModel.findOne({ _id: productid });
+
+  if (!product) {
+    throw new AppError(404, 'Product is not available');
+  }
+
+  if (product.quantity < quantity) {
+    throw new AppError(400, 'Not enough stock available');
+  }
+
+  product.quantity -= quantity;
+
+  await product.save();
+
   const result = await OrderModel.create(payload);
+
   return result;
 };
 

@@ -9,4 +9,10 @@ export type TProduct = {
   category: string;
   price: number;
   available: boolean;
+  location: string;
+  miles: number;
+  transmission: string;
+  fuel: string;
+  seats: number;
+  reviews: number;
 };

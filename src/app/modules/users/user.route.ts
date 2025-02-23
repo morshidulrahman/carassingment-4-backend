@@ -2,6 +2,7 @@ import express from 'express';
 import { userController } from './user.controller';
 import validationRequest from '../../middlewares/validateRequest';
 import { UservalidationSchema } from './user.validation';
+import auth from '../../middlewares/auth';
 
 const router = express.Router();
 
@@ -11,8 +12,8 @@ router.post(
   userController.createUser,
 );
 
-router.put('/user/:userId', userController.updateUser);
-router.delete('/user/:userId', userController.DeleteUser);
-router.get('/users', userController.getallUser);
+router.put('/user/:userId', auth('admin'), userController.updateUser);
+router.delete('/user/:userId', auth('admin'), userController.DeleteUser);
+router.get('/users', auth('admin'), userController.getallUser);
 
 export const userRouter = router;

@@ -12,6 +12,12 @@ const CreateProductValidationSchema = z.object({
     category: z.string(),
     price: z.number().min(0),
     available: z.boolean(),
+    location: z.string(),
+    miles: z.number().min(0),
+    transmission: z.string(),
+    fuel: z.string(),
+    seats: z.number(),
+    reviews: z.number(),
   }),
 });
 
@@ -27,6 +33,12 @@ const UpdateProductValidationSchema = z.object({
     category: z.string().optional(),
     price: z.number().min(0).optional(),
     available: z.boolean().optional(),
+    location: z.string().optional(),
+    miles: z.number().min(0).optional(),
+    transmission: z.string().optional(),
+    fuel: z.string().optional(),
+    seats: z.number().optional(),
+    reviews: z.number().optional(),
   }),
 });
 
