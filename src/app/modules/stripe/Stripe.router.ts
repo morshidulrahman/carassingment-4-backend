@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import express from 'express';
 import config from '../../config';
 import Stripe from 'stripe';
@@ -14,7 +15,7 @@ router.post('/create-payment-intent', async (req, res) => {
       currency: 'usd',
     });
     res.status(200).json({ clientSecret: paymentIntent.client_secret });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
 });

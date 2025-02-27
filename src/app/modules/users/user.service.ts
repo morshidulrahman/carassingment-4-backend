@@ -14,6 +14,11 @@ const getalluserintodb = async () => {
   return result;
 };
 
+const getSingleUserintodb = async (email: string) => {
+  const result = await User.find({ email });
+  return result;
+};
+
 const UpdateuserIntoDb = async (payload: Partial<TUser>, productId: string) => {
   const result = await User.findByIdAndUpdate(productId, payload, {
     new: true,
@@ -37,4 +42,5 @@ export const userServices = {
   UpdateuserIntoDb,
   getalluserintodb,
   DeleteuserIntoDb,
+  getSingleUserintodb,
 };

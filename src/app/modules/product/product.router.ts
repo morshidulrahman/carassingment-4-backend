@@ -13,8 +13,8 @@ router.post(
   productController.createProduct,
 );
 
-router.get('/allproducts', auth('admin'), productController.getallproduct);
-router.get('/product/:id', auth('admin'), productController.getSingleProduct);
+router.get('/allproducts', productController.getallproduct);
+router.get('/product/:id', productController.getSingleProduct);
 
 router.put(
   '/product/:productId',

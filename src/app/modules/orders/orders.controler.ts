@@ -49,9 +49,21 @@ const DeleteOrder = catchAsync(async (req, res) => {
   });
 });
 
+const getSingleOrderIntoDb = catchAsync(async (req, res) => {
+  const orderId = req.params.email;
+  const result = await ordersServices.getSingleOrderIntoDb(orderId);
+  SendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Single Order fetched successfully',
+    data: result,
+  });
+});
+
 export const orderController = {
   createOrder,
   getallOrder,
   DeleteOrder,
   UpdateOrder,
+  getSingleOrderIntoDb,
 };

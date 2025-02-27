@@ -53,9 +53,18 @@ const DeleteOrderIntoDb = async (orderId: string) => {
   }
 };
 
+const getSingleOrderIntoDb = async (orderEmail: string) => {
+  const order = await OrderModel.find({ 'user.email': orderEmail });
+  if (!order) {
+    throw new AppError(404, 'Order not found');
+  }
+  return order;
+};
+
 export const ordersServices = {
   AddOrderDataintoDb,
   getallOrderintoDb,
   UpdateOrdertIntoDb,
   DeleteOrderIntoDb,
+  getSingleOrderIntoDb,
 };
