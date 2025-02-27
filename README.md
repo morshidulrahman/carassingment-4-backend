@@ -1,15 +1,15 @@
-# Blogs Server
+# cars Server
 
-# https://assingment-3-six.vercel.app
-
+# https://assingment-4-ten.vercel.app
+ 
 #To Run Local
 
 ```bash
 # Clone this project
-$ git clone  https://github.com/morshidulrahman/assignment-3-blogs.git
+$ git clone  https://github.com/morshidulrahman/carassingment-4-backend.git
 
 # Access
-$ cd assignment-3-blogs
+$ cd carassingment-4-backend
 
 # Install dependencies
 $ npm i
@@ -22,7 +22,7 @@ $ npm run start:dev
 
 # Project Description
 
-- This API project is designed to manage blogs and users, enabling the following features
+- This API project is designed to eccomerce cars, enabling the following features
 
 - You have to use npm run this project
 
@@ -32,4 +32,4 @@ $ npm run start:dev
 
 - Perform full CRUD operations for blogs and manage user authentication and authorization efficiently.
 
-- Support advanced blog functionalities like search, sorting, and filtering.
+- Support advanced  functionalities like search, sorting, and filtering. payment system
